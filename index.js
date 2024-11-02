@@ -62,7 +62,7 @@ app.post('/import', upload.single('file'), (req, res) => {
                 await Promise.all(
                     data.map(row => {
                         return client.query(
-                            'INSERT INTO region (region_id, region_name) VALUES ($1, $2) ON CONFLICT (region_id) DO NOTHING', [row.region_id, row.region_name]
+                            'INSERT INTO regions (region_id, region_name) VALUES ($1, $2) ON CONFLICT (region_id) DO NOTHING', [row.region_id, row.region_name]
                         );
                     })
                 );
